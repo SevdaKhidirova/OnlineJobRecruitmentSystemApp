@@ -1,0 +1,83 @@
+﻿@{
+    Layout = null;
+}
+
+@model DocumentViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="~/assets/images/favicon1.webp" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/registeration.css">
+    <title>Documents</title>
+</head>
+<body>
+    <section id="register-title">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4  col-md-6 col-sm-12 ">
+                <partial name="_LinksPartial" />
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-6 col-sm-12  pt-5 right">
+                <form method="post">
+                    <h4 class="px-4">Documents</h4>
+                    <div class="personal-inf m-2 p-2 px-4 pt-5 mt-lg-3">
+                        <div class="mb-3">
+                            <label for="formFileSm" class="form-label download">Download cv</label>
+                            <p for="formFileSm" class="form-label cv-label ">Yüklədiyiniz fayl PDF, DOC, DOCX  formatında olmalıdır, və 3 mb aşmamalıdır</p>
+                            <input class="form-control form-control-sm" id="formFileSm" type="file" required asp-for="Cv">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label download">Diplom</label>
+                            <p for="formFileSm" class="form-label cv-label ">Yüklədiyiniz fayl PDF, JPG, PNG  formatında olmalıdır, və 3 mb aşmamalıdır</p>
+                            <input class="form-control" type="file" id="formFileMultiple" multiple asp-for="Diploms">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label download">Add your certificate</label>
+                            <p for="formFileSm" class="form-label cv-label ">Yüklədiyiniz fayl PDF, JPG, PNG  formatında olmalıdır, və 3 mb aşmamalıdır</p>
+                            <input class="form-control" type="file" id="formFileMultiple" multiple asp-for="Certificate">
+                        </div>
+                        <div class="mb-3 ">
+                            <label for="exampleInputSalary" class="form-label">Salary</label>
+                            <input type="text" placeholder="Salary you want" asp-for="Salary" class="form-control p-3" id="exampleInputSalary" aria-describedby="nameHelp" required>
+                            <span class="text-danger" asp-validation-for="Salary"></span>
+                        </div>
+                        <div class="mb-3 ">
+                            <label for="exampleInputPosition1" class="form-label">Position</label>
+                            <input type="text" placeholder="Your Main Position" asp-for="Position" class="form-control p-3" id="exampleInputPosition1" aria-describedby="nameHelp" required>
+                            <span class="text-danger" asp-validation-for="Position"></span>
+                        </div>
+                        <label for="formFileMultiple" class="form-label download"> Letter of motivation</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" asp-for="MotivationLetter" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Comments</label>
+                        </div>
+                    </div>
+                    <div class="buttons-special">
+                        <a href="/account/experience" class="btn btn-light"><i class="bi bi-arrow-left"></i>Back</a>
+                        <button type="submit" class="btn btn-light ">Complete</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@model List<AppUser>
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="mb-4">Users</h1>
+    @*<a class="btn btn-success" href="/admin/orders/create">Create</a>*@
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Settings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AppUser item in Model)
+        {
+<tr>
+    <td>@item.Name @item.Surname </td>
+    <td>@item.Email</td>
+    <td>@item.UserName</td>
+    <td>
+        @if (item.Status)
+        {
+    <a href="/admin/users/block/@item.Id" class="btn btn-danger">
+        <i class="fa fa-lock"></i>
+    </a> }
+else
+{
+    <a href="/admin/users/unblock/@item.Id" class="btn btn-success">
+        <i class="fa fa-lock-open"></i>
+    </a>}
+        <a href="/admin/users/manageRoles/@item.Id" class="btn btn-primary">
+            <i class="fa fa-crown"></i>
+        </a>
+        <a href="/admin/users/ResetPassword/@item.Id" class="btn btn-primary">
+            <i class="fa fa-edit"></i>
+        </a>
+        <a href="/admin/users/RemoveUser/@item.Id" class="btn btn-danger">
+            <i class="fa fa-trash"></i>
+        </a>
+    </td>
+</tr>}
+    </tbody>
+</table>

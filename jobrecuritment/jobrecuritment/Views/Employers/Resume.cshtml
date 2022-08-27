@@ -1,0 +1,223 @@
+﻿@model ResumeViewModel
+
+    <section id="resume">
+        <div class="container pt-3 pb-5 own-card">
+            <div class="row">
+                <div class="col-12">
+                    <div class="resume-title">
+                        <p>
+                            <a href="/employers/index">Resumes</a> / Resume
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    @foreach (PersonalInfo item in Model.personalInfosLs)
+                    {
+                        <div class="col-12">
+                            <div class="search-card">
+                                <a href="/employers/resume/@item.Id">
+                                    <div class="row">
+                                        <div class="col-6 text-center">
+                                            <img src="~/assets/images/user/user.png" style="margin-top:10px" alt="">
+                                        </div>
+                                        <div class="col-6">
+                                            <p>
+                                                @Model.documentsLs.Where(x=>x.UserId==item.UserId).Select(x=>x.Position).FirstOrDefault()
+                                            </p>
+                                            @*<p>@Model.interests.Where(x=>x.UserId==item.UserId).OrderByDescending(x=>x.Id).Select(x=>x.InterestItem).FirstOrDefault()</p>*@
+                                            <p>@item.Name @item.Surname</p>
+                                            <h5 class="salary">@Model.documentsLs.Where(x => x.UserId == item.UserId).Select(x => x.Salary).FirstOrDefault()</h5>
+                                        </div>
+                                        <hr>
+                                        <div class="col-12">
+                                            <div class="d-flex mx-2 card-footer">
+                                                <div class="location">
+                                                    <i class="bi bi-geo-alt"></i>@Model.personalInfosLs.Where(x=>x.UserId==item.UserId).Select(x=>x.Adress).FirstOrDefault()
+                                                </div>
+                                                <div class="calendar">
+                                                    <i class="bi bi-calendar3"></i>&nbsp; @item.RegistrationTime.ToString("dd MMM yyyy")
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="main-card">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="image-container text-center pt-3">
+                                    <img src="~/assets/images/user/user.png" style="margin-top:10px" alt="">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="info">
+                                    <p class="name">@Model.personalInfos.Surname @Model.personalInfos.Name @Model.personalInfos.FatherName</p>
+                                    <p>+(994)-@Model.appUser.PhoneNumber </p>
+                                    <p class="mail">@Model.appUser.Email</p>
+                                    <p>@Model.personalInfos.Adress</p>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="info">
+                                        <p class="profession">
+                                               @Model.Documents.Position
+                                         </p>
+                                    <h5>
+                                        @Model.Documents.Salary
+                                    </h5>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="note mt-4 px-5">
+                        <h5>Motivation Letter</h5>
+                        @if (Model.Documents.MotivationLetter == null)
+                        {
+                            <p class="note-text">
+                                Not Added
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="note-text">
+                                @Model.Documents.MotivationLetter
+                            </p>
+                        }
+
+                    </div>
+                    <div class="personal-info mt-4 px-5">
+                        <p class="title">Personal Information</p>
+                        <div class="row">
+                            <div class="col-6 first">
+                                <p class="gender">Gender:</p>
+                                <p class="age">Age:</p>
+                                <p class="place">Place of Birth:</p>
+                                <p class="adress">Adress:</p>
+                            </div>
+                            <div class="col-6 second">
+                                <p class="gender">@Model.personalInfos.Gender</p>
+                                <p class="age">
+                                    @{ 
+                                        int now = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
+                                        int age = Convert.ToInt32(Model.personalInfos.DateOfBiirth.ToString("yyyy"));
+                                        int res = now - age;
+                                    } 
+                                   @res
+                                </p>
+                                @if (Model.personalInfos.RegistrAdress != null)
+                                 {
+                                     <p class="place">@Model.personalInfos.RegistrAdress</p>
+                                  }
+                                else
+                                {
+                                   <p class="adress">@Model.personalInfos.Adress</p>
+                                }
+                                <p class="adress">@Model.personalInfos.Adress</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills mt-4 px-5">
+                        @foreach (var item in Model.interests)
+                        {
+                         
+                            <span>@item.InterestItem</span>
+                        }
+
+                        @*<span>C#</span>
+                        <span>SQL</span>
+                        <span>ASP.NET MVC(Core)</span>
+                        <span>C#, HTML5, CSS3, JavaScript, Bootstrap5, Jquery</span>
+                        <span>Web services ( RESTful, SOAP)</span>
+                        <span>Java</span>
+                        <span>PHP</span>
+                        <span>MsSQL Server (T-SQL), ORM (EntityFramework) texnologiyaları, JSON</span>*@
+                    </div>
+                    <div class="education mt-4 px-5">
+                        <div class="row">
+                            <p class="edu">Education</p>
+                            @foreach (Education item in Model.education)
+                            {
+                                <div class="col-6">
+                                    <p class="edu">@item.Degree </p>
+                                    <p>Graduation year @item.GraduationYear </p>
+                                </div>
+                                <div class="col-6 line">
+                                    <p>@item.University</p>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    <div class="experience mt-4 px-5 pb-2">
+                        <p class="exp">Experience</p>
+                        @if (Model.experience.Count==0)
+                        {
+                            <p>No experience</p>
+                        }
+                        else
+                        {
+                            @foreach (Experience item in Model.experience)
+                            {
+                                <p class="company">@item.CompanyName</p>
+                                <span class="start-time">@item.StartToWork -</span>
+                                <span class="end-time">@item.EndToWork</span>
+                                <p class="profesion">@item.Responsibilities</p>
+                            }
+                        }
+
+                    </div>
+                    <div class="languages link mt-4 px-5 pb-2 d-flex">
+                        <div class="col-6">
+                            <div class="language">
+                                <p>Language</p>
+                                @foreach (Language item in Model.languages)
+                                {
+
+                                    <p>@item.LanguageItem </p>
+                                    @*<p>Speak - @item.Speak</p>
+                                    <p>Write - @item.Write</p>
+                                    <p>Read - @item.Read</p>*@
+                                    <hr />
+
+                                }
+
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="links">
+                                <p>Social Media Links</p>
+
+                                <a href="@Model.links.Facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                                <a href="@Model.links.Github" target="_blank"><i class="bi bi-github"></i></a>
+                                <a href="@Model.links.Linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                @*@if (Model.links.Github != null)
+                                {
+                                    <a href="@Model.links.Github"><i class="bi bi-github"></i></a>
+                                }
+                                @if (Model.links.Linkedin != null)
+                                {
+                                    <a href="@Model.links.Linkedin"><i class="bi bi-linkedin"></i></a>
+                                }
+                                @if (Model.links.Facebook == null && Model.links.Github == null && Model.links.Linkedin == null)
+                                {
+                                    <p>--</p>
+                                }*@
+
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-warning my-2">Invate for an İnterview </a>
+                    @*<a class="btn btn-info">Add to Starred</a>*@
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    

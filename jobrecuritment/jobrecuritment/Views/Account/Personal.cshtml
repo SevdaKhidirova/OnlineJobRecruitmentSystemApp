@@ -1,0 +1,111 @@
+﻿@{ 
+    Layout = null;
+}
+
+@model PersonalInfoViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="~/assets/images/favicon1.webp" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/registeration.css">
+    <title>Personal Informatoin</title>
+</head>
+<body>
+    <section id="register-title">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4  col-md-6 col-sm-12 ">
+                <partial name="_LinksPartial" />
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-6 col-sm-12  pt-5 right">
+                <h4 class="px-4">Personal Information</h4>
+                <div class="personal-inf m-2 p-2 px-4  mt-lg-3">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="mb-3 ">
+                            <label for="exampleInputName1" class="form-label">Name</label>
+                            <input type="text" placeholder="Name" asp-for="Name" class="form-control p-3" id="exampleInputName1" aria-describedby="nameHelp" required>
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
+                        <div class="mb-3 ">
+                            <label for="exampleInputSurname1" class="form-label">Surname</label>
+                            <input type="text" placeholder="Surname" asp-for="Surname" class="form-control p-3" id="exampleInputSurname1" aria-describedby="surnameHelp" required>
+                            <span class="text-danger" asp-validation-for="Surname"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputSurname1" class="form-label">Father Name</label>
+                            <input type="text" placeholder="Father Name" asp-for="FatherName" class="form-control p-3" id="exampleInputSurname1" aria-describedby="surnameHelp" required>
+                            <span class="text-danger" asp-validation-for="FatherName"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Date</label>
+                            <input type="date" class="form-control p-3" asp-for="DateOfBirth" id="exampleInputEmail1" placeholder="Date of Birth" aria-describedby="emailHelp">
+                            <span class="text-danger" asp-validation-for="DateOfBirth"></span>
+                        </div>
+                        <div class="mb-3">
+                            <h5 class="pt-4 pb-3 gender">Gender</h5>
+                            <input type="radio" name="gender" value="Male" asp-for="Gender" aria-describedby="emailHelp">
+                            <label for="male" class="form-label male">Male</label>
+                            <span class="text-danger" asp-validation-for="Gender"></span>
+                            <span class="female">
+                                <input type="radio" value="Female" asp-for="Gender" name="gender" aria-describedby="emailHelp">
+                                <label for="female" class="form-label">Female</label>
+                                <span class="text-danger" asp-validation-for="Gender"></span>
+                            </span>
+                        </div>
+                        <div class="mb-3 ">
+                            <h5>Adress</h5>
+                            <input type="text" class="form-control p-3" asp-for="Adress" id="adress" aria-describedby="adressHelp" required>
+                            <span class="text-danger" asp-validation-for="Adress"></span>
+                        </div>
+                        <div class="mb-3 pt-3">
+                            <input type="checkbox" class="p-3 register-checkbox">
+                            <label for="adrees" class="form-label text "> My residential address and my registered address are different</label>
+                        </div>
+                        <div class="mb-3 pt-3">
+                            <label for="adrees" class="form-label ">Registered address</label>
+                            <input type="text" class="form-control register-adress p-3" asp-for="RegistrAdress" id="adress" aria-describedby="adressHelp" >
+                            <span class="text-danger" asp-validation-for="RegistrAdress"></span>
+                        </div>
+                        <div class="mb-3 pt-3">
+                            <label for="adrees" class="form-label ">Click for download Picture</label>
+                            <p class="upload-info">The file you upload must be in JPG, PNG format, and must not exceed 3 mb</p>
+                            <a class="add">
+                                <span><i class="bi bi-plus"></i>Add</span>
+                                <input type="file" class="form-control p-3 for-image add-image-input" asp-for="ProfilImg" id="add-image-input" accept="image/*" required>
+                                <span class="text-danger" asp-validation-for="ProfilImg"></span>
+                            </a>
+                        </div>
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit btn btn-light" value="Register" />
+                        </div>
+                        @*<button type="submit" class="btn btn-light next">Next</button>*@
+                    </form>
+
+                </div>
+                @*<div class="buttons">
+                    <button href="/account/interests" type="submit" class="btn btn-light next">Next</button>
+                </div>*@
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+</html>

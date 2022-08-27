@@ -1,0 +1,47 @@
+﻿@model FilterViewModel
+
+
+<div class="col-12 project-filter">
+    <input type="checkbox" name="" id="">
+    <label data-target="all" class="active mb-2">All</label>
+    <div class="job-types">
+        <h5>Job Types</h5>
+        @foreach (JobType item in Model.jobTypes)
+        {
+            <div>
+                <input type="checkbox" class="active" data-target="@item.Name.ToLower().Replace(" ","")">
+                <label for="">@item.Name</label>
+                <span>@Model.jobVacancies.Count(x => x.JobTypeId == item.Id)</span>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="col-12 project-filter">
+    <div class="level mt-3">
+        <h5>Level</h5>
+        @foreach (Level item in Model.levels)
+        {
+            <div>
+                <input type="checkbox" class="active" name="" id=""  data-target="@item.Name.ToLower()">
+                <label for="">@item.Name</label>
+                <span>@Model.jobVacancies.Count(x=>x.LevelId==item.Id)</span>
+            </div>
+        }
+
+    </div>
+</div>
+<div class="col-12 mt-4 project-filter">
+    <div class="job-filter">
+        <h5 class="mb-4">Skills</h5>
+        @foreach (Category item in Model.categories)
+        {
+            <div>
+                <input type="checkbox" name="" id="" class="active" data-target="@item.Name.ToLower().Replace(" ","")">
+                <label for="">@item.Name</label>
+                <span>@Model.jobVacancies.Count(x => x.CategoryId == item.Id)</span>
+            </div>
+        }
+
+    </div>
+</div>

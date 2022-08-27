@@ -1,0 +1,638 @@
+ *{
+    font-family: 'Montserrat', sans-serif;
+ }
+ body{
+   overflow-x: hidden
+ }
+ a{
+   text-decoration: none;
+   color: black;
+}
+ .navbar .logo{
+    width: 120px;
+ }
+ .logo-part{
+    position: relative;
+    bottom: -10px;
+    left: -9px;
+    color: #1B4089;
+    animation-name: ForlogoPart;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+ }
+.navbar .navbar-nav a{
+    color: black!important;
+}
+ @keyframes ForlogoPart{
+    from{
+        color: white;
+    }
+    to{
+        color: #1B4089;
+    }
+ }
+
+ #hiring{
+    width: 100vw;
+    background-color: #F3F3F3;
+    margin-top: 112px;
+    padding-top: 100px;
+ }
+ #hiring .h5{
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+ }
+
+ #hiring .card-item{
+    width: 30%;
+    height: 420px;
+    text-align: start;
+    background-color: white;
+    position: relative;
+ }
+ #hiring .card-item h2{
+    margin-top: 30px;
+    font-size: 45px;
+    opacity: .3;
+ }
+
+
+ #hiring .card-item span{
+   position: absolute;
+   text-align: start;
+   left: 30px;
+ }
+ .cards{
+    justify-content: space-between;
+ }
+
+ .dropdown {
+   position: relative;
+   display: inline-block;
+   cursor: auto;
+ }
+ .info .btn-link{
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 400;
+   font-size: 14px;
+   display: block;
+ }
+ .info .button-group:hover{
+   background-color: white;
+ }
+ .personal:hover{
+   background-color: #F3F3F3!important;
+ }
+form .submit:hover{
+   background-color: white!important;
+}
+.form-check-input:focus{
+   background-color: #FEDA00;
+}
+ .dropdown-content {
+   width: 340px;
+   top: 70px;
+   display: none;
+   position: absolute;
+   background-color: #F3F3F3;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   padding: 12px 16px;
+   z-index: 1;
+ }
+ .profile .profile-image{
+   width: 42px;
+   border-radius: 100%;
+   border: 1px solid #17161E;
+   overflow: hidden;
+ }
+ .dropdown-content .btn{
+   text-decoration: none;
+   color: black;
+ }
+ .dropdown-content .profile-image1{
+   width: 70%;
+   border: 1px solid black;
+   border-radius: 100%;
+   text-align: center;
+   margin: 0 auto;
+   
+ }
+.dropdown-content .profile-text{
+   /* text-align: start; */
+   font-size: 13px;
+   justify-content: center;
+}
+.profile-text{
+   margin-top: 14px;
+}
+.login,.profile{
+   cursor: pointer;
+}
+.profile-text .email{
+   margin-left: -4px;
+}
+ .profile img{
+   width: 100%;
+   border-radius: 100%;
+   aspect-ratio: 1/1;
+ }
+ .info{
+   margin-top: -60px;
+ }
+
+.remove{
+   position: absolute;
+   right: 20px;
+   cursor: pointer;
+}
+.remove-profile{
+   position: absolute;
+   right : 20px;
+   top: 10px;
+   cursor: pointer;
+}
+#exampleInputPassword1:focus{
+   box-shadow: none;
+}
+#exampleInputEmail1:focus{
+   box-shadow: none;
+}
+
+
+
+ @media screen and (max-width:1005px) {
+    #hiring .cards{
+        justify-content: center;
+    }
+    #hiring .card-item{
+        width: 300px;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+ }
+ @media screen and (max-width:992px) {
+   #hiring .cards{
+       justify-content: center;
+   }
+}
+ @media screen and (max-width:767px){
+    #hiring .h5{
+        font-size: 20px;
+    }
+ }
+ .vacancies{
+   margin-top: 115px;
+   background-color: #F3F3F3;
+ }
+
+ #vacancies .own-container{
+   width: 90vw;
+   height: 300px;
+   margin:  0 auto;
+   background-color: #17161E;
+ }
+
+ #vacancies .own-container h2{
+   color: white;
+    font-size: 35px;
+    font-weight: 300;
+    padding-top: 30px;
+ }
+#vacancies .own-container .container{
+  padding-top: 60px;
+}
+#vacancies .own-container .container .form-outline{
+   width: 400px;
+}
+ #vacancies .own-container .input{
+   max-width: 400px;
+   background-color: #17161E;
+   border-top: none;
+   border-left: none;
+   border-right: none;
+   border-radius: none;
+   color: white;
+ }
+
+ #vacancies .own-container .input:focus{
+   box-shadow: none;
+ }
+ #vacancies .own-container .search-btn{
+   /* width: 10px;
+   height: 10px; */
+   background-color: #17161E;
+   border-radius: none;
+   border: none;
+ }
+ #vacancies .own-container .icon i{
+   color: white;
+   display:inline-block;
+   margin-left: -10px;
+   font-size: 25px;
+   text-align: center;
+   margin-bottom: 20px;
+ }
+ @media screen and (max-width:499px) {
+   #vacancies .own-container .icon i{
+      font-size: 15px;
+   }
+   #vacancies .own-container .input{
+      width: 220px;
+   }
+   #vacancies .own-container .container .form-outline{
+      width: 220px;
+   }
+ }
+
+ #companies{
+   width: 100vw;
+ }
+
+
+ #companies .logo{
+   width: 100%;
+ }
+ #companies .logo img{
+   width: 170px;
+ }
+#companies .company-text{
+   text-align: center;
+   opacity: .9;
+}
+#vacancies{
+   width: 100%;
+   padding-top: 100px;
+}
+
+.vacancies .item{
+   width: 100%;
+   background-color: white;
+   height: 170px;
+   text-align: center;
+   padding-top: 20px;
+   transition: all .3s ease;
+}
+
+.vacancies .item .vacancy{
+   font-size: 30px;
+}
+.vacancies .item .vacancy span{
+   font-size: 15px;
+   opacity: .8;
+}
+.vacancies .item h4{
+   opacity: .8;
+}
+.vacancies .item:hover{
+   background-color: #FEDA00;
+}
+.vacancies{
+  padding-bottom: 100px;
+}
+
+
+ #vacancies-filter .job-types h5{
+   font-weight: 400;
+ }
+ #vacancies-filter .level label,
+ #vacancies-filter .job-filter label,
+ #vacancies-filter .job-types label{
+   font-weight: 400;
+   font-family: 'Mukta', sans-serif;
+   margin-bottom: 6px;
+ }
+ 
+ #vacancies-filter .job-types,.job-filter,.level{
+   position: relative;
+ }
+ #vacancies-filter .level span,
+ #vacancies-filter .job-filter span,
+ #vacancies-filter .job-types span{
+ position: absolute;
+ right: 20px;
+ }
+
+
+ #internship .job-card,
+ #vacancies-filter .job-card{
+   width: 100%;
+   background-color: #F3F3F3;
+   padding: 20px;
+   color: black;
+   font-family: 'Mukta', sans-serif; 
+   font-weight: 400;
+   opacity: .9;
+   position: relative;
+ }
+ #internship a,
+ #vacancies-filter a:hover{
+   color: black!important;
+ }
+ #internship .job-card,
+ #vacancies-filter .job-card{
+   transition: all .3s ease;
+ }
+ #internship .job-card:hover{
+   background-color: #ffda09c0;
+ }
+ #vacancies-filter .job-card:hover{
+   background-color: #ffda09c0;
+ }
+ #vacancies-filter .type-skill{
+   position: sticky;
+   top: 112px;
+ }
+ #internship .job-card .btn,
+ #vacancies-filter .job-card .btn{
+   position: absolute;
+   right: 31px;
+   bottom: 15px;
+ }
+
+ #internship .job-card .btn,
+ #vacancies-filter .job-card h4{
+   font-weight: 600;
+   opacity: .8;
+ }
+ #internship .job-card .btn,
+ #vacancies-filter .job-card span{
+   font-weight: 600;
+ }
+ #vacancies a{
+   color: white;
+ }
+ #vacancies a i{
+   display: inline-block;
+   margin-right: 5px;
+ }
+ #summary .bi-check{
+  margin-right: 5px;
+ }
+
+#summary .apply{
+margin-left: 95%;
+}
+ footer{
+   width: 100vw;
+   height: 10vh;
+   background-color:#F8F9FA;
+   padding: 20px 0px 20px 0px;
+ }
+
+footer i{
+   color: #FEDA00;
+   margin-right: 10px;
+   font-weight: 26px;
+}
+.employer-filter{
+   margin-top: 116px;
+}
+
+.cards{
+   padding-top: 120px;
+}
+
+.cards .card-item{
+   background-color: #F3F3F3;
+   height: 160px;
+   margin-bottom: 30px;
+   text-align: center;
+   padding-top: 10px;
+   transition: all .3s ease;
+}
+.cards .card-item:hover{
+   background-color: #FEDA00;
+}
+.cards .card-item:hover a{
+  color: black!important;
+}
+
+.employer .level label,
+.employer .job-filter label,
+.employer .job-types label{
+  font-weight: 400;
+  font-family: 'Mukta', sans-serif;
+  margin-bottom: 6px;
+}
+
+.employer .job-types,.job-filter,.level{
+  position: relative;
+}
+.employer .level span,
+.employer .job-filter span,
+.employer .job-types span{
+position: absolute;
+right: 20px;
+}
+
+#resume{
+   margin-top: 112px;
+   background-color: #F3F3F3;
+}
+
+#resume .resume-title{
+  background-color: white;
+  padding-left: 20px;
+  height: 40px;
+  border-radius: 5px;
+  padding-top: 10px;
+}
+
+#resume .search-card{
+  background-color: white;
+  margin-top: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px 0px #d5b5b55e;
+}
+#resume .search-card p{
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+#resume .search-card p:first-child{
+  font-weight: 600;
+}
+#resume .search-card h5{
+  font-weight: 600;
+  font-size: 17px;
+}
+#resume .search-card img{
+  width: 55px;
+}
+#resume .params label{
+   font-weight: 600;
+   margin-bottom: 15px;
+   width: 100px;
+   font-family: 'Mukta', sans-serif;
+}
+.search-card a:hover{
+  color: black;
+}
+.search-card hr{
+  width: 90%;
+  margin-left: 10px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+.card-footer{
+  justify-content: space-around;
+}
+
+@media screen and (max-width:1000px) and (min-width:768px) {
+  #resume .search-card{
+     width: 300px;
+   }
+}
+.main-card{
+  background-color: white;
+  margin-top: 25px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px 0px #d5b5b55e;
+  font-size: 15px;
+}
+.main-card .info{
+  margin-top: 20px;
+}
+.main-card img{
+  width: 90px;
+}
+.main-card .name{
+  font-weight: 600;
+}
+.main-card .salary,
+.main-card .profession{
+  font-weight: 600;
+}
+@media screen and (max-width:550px) {
+  #resume .personal-info,
+  #resume .note,
+  #resume .main-card{
+     font-size: 13px; 
+   }
+   #resume .main-card .salary{
+    font-size: 13px; 
+  }
+   #resume .mail{
+    margin: 2px 0px;
+   }
+}
+#resume .note{
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 2px 2px 10px 0px #d5b5b55e;
+  border-radius: 5px;
+}
+ .note h5{
+  font-weight: 600;
+  font-size: 15px;
+ }
+ .note-text{
+  opacity: .8;
+ }
+.personal-info , .skills ,.education,.experience,.languages{
+  padding-top: 15px;
+  background-color: white;
+  font-size: 15px;
+  box-shadow: 2px 2px 10px 0px #d5b5b55e;
+  border-radius: 5px;
+}
+.personal-info .first,
+.personal-info .title{
+  font-weight: 600;
+}
+.skills{
+  padding-bottom: 18px;
+}
+.skills span{
+  display: inline-block;
+  padding: 10px;
+  border-radius: 15px;
+  background-color:#F3F3F3;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.line{
+  border-left:1px solid #17aaac;
+  margin-bottom: 30px;
+  height: 80px;
+}
+.line p{
+  font-weight: 600;
+}
+.edu{
+  font-weight: 600;
+}
+@media screen and (max-width:550px) {
+  #resume .education{
+     font-size: 12px; 
+   }
+
+}
+.experience .exp,.company{
+  font-weight: 600;
+}
+.experience span{
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.languages{
+  justify-content: space-between;
+  font-weight: 16px;
+}
+.links a{
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 15px;
+}
+.language{
+  font-weight: 600;
+}
+
+#register-card{
+  margin-top: 124px;
+  margin-bottom:152px;
+}
+.card-register{
+  padding-top: 30px;
+  max-width: 650px;
+  margin: 20px 100px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #F8F9FA;
+  border-radius: 5px;
+}
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 1%);
+}
+.card-register .input:focus{
+ box-shadow: none white;
+ outline: none;
+ box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 2%);
+ border-color: none;
+}
+
+.pass{
+  position: relative;
+}
+.pass span{
+  position: absolute;
+  right: 10px;
+  bottom: 7px;
+  cursor: pointer;
+}
+
+/* @media screen and (max-width:993px) and (min-width:768px) {
+  #resume .main-card{
+     width: 300px;
+   }
+} */

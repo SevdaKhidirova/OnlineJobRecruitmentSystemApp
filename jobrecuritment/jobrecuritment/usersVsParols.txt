@@ -1,0 +1,12 @@
+﻿ @Html.Partial("_ServicePartial", Model.services)    
+  <partial name="_CategoriesPartial" />
+
+  parol Sevda571#@
+
+  sevda.khidirova68@gmail.com  superAdmin
+
+
+
+ Level ----junior middle
+ job type --full time freelancer
+ category --.net c#

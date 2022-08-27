@@ -1,0 +1,113 @@
+#profil{
+    margin-top: 122px;
+    border-radius: 9px;
+    margin-bottom: 10px;
+}
+#profil .profil-image,.main-info,.profil_skills,.profil_experience,.profil_language,.profil_links{
+   padding: 30px;
+}
+#profil .profil-image img{
+    width: 130px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+}
+#profil .card-top{
+    text-align: center;
+}
+
+#profil .appeals,
+#profil .profil-wrapper{
+    width: 100%;
+    background-color: #f3f3f3;
+}
+#profil .profil_skills,.profil_experience{
+   padding-top: 10px;
+}
+#profil .profil_skills .skills-area span{
+    display: inline-block;
+    padding: 5px;
+    background-color: white;
+    margin: 3px;
+    border-radius: 10px;
+}
+#profil .bold{
+    font-weight: 600;
+}
+#profil .company_detailed,.main-info,.language_detailed,.links_detailed{
+    margin: 10px;
+    padding: 15px;
+    border-radius: 9px;
+}
+    #profil .main-info {
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    #profil .main-info {
+        max-width: 350px;
+        margin-left: 30px;
+    }
+#profil .main-info p,
+#profil .company_detailed p,
+#profil .language_detailed p,
+#profil .links_detailed p{
+    margin-bottom: 9px;
+}
+#profil .appeals{
+    padding: 10px;
+    font-size: 15px;
+    margin: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 9px;
+}
+#profil .edit_items{
+ margin-left: 40px;
+ margin-bottom: 20px;
+}
+#profil .links_detailed .link{
+    word-wrap: break-word;
+}
+
+@media screen and (max-width:992px) {
+    #profil {
+       font-size: 14px;
+     }
+  }
+  @media screen and (max-width:994px) and (min-width:767px) {
+    #profil .gmail{
+        font-size: 12px;
+       -ms-word-wrap: break-word;
+        word-wrap: break-word;
+      }
+  }
+
+  #post_ad{
+    margin-top: 122px;
+    margin-bottom:5px;
+    padding-bottom: 40px;
+  }
+  #post_ad .add-card{
+    background-color: #f3f3f3;
+    padding: 30px;
+    position: relative;
+  }
+  #post_ad .job_type{
+    font-size: 13px;
+  }
+.post_ad_button{
+    position: absolute;
+    right: 30px;
+    bottom: 8px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  #post_ad .my_post{
+    padding: 10px;
+    font-size: 15px;
+    margin: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 9px;
+    background-color: #f3f3f3;
+  }

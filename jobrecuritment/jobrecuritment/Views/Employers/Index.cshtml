@@ -1,0 +1,123 @@
+﻿@model EmployerResumeViewModel
+
+    <section id="vacancies-filter employer" class="employer">
+        <div class="container my-2">
+            <div class="row">
+                <div class="col-sm-3  employer-filter">
+                    <div class="type-skill mt-5">
+                        <div class="row">
+
+                            @*<div class="col-12 project-filter">
+                                <input type="checkbox" name="" id="">
+                                <label data-target="all" class="active mb-2">All</label>
+                                <div class="job-types">
+                                    <h5>Job Types</h5>
+                                    @foreach (JobType item in Model.jobTypes)
+                                    {
+                                        <div>
+                                            <input type="checkbox" class="active" data-target="@item.Name.ToLower().Replace(" ","")">
+                                            <label for="">@item.Name</label>
+                                            <span>@Model.jobVacancies.Count(x => x.JobTypeId == item.Id)</span>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-12 project-filter">
+                                <div class="level mt-3">
+                                    <h5>Level</h5>
+                                    @foreach (Level item in Model.levels)
+                                    {
+                                        <div>
+                                            <input type="checkbox" class="active" name="" id="" data-target="@item.Name.ToLower()">
+                                            <label for="">@item.Name</label>
+                                            <span>@Model.jobVacancies.Count(x => x.LevelId == item.Id)</span>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>*@
+                            <div class="col-12 mt-4 project-filter">
+                                <div class="job-filter">
+                                    <h5 class="mb-4 ">Filter</h5>
+                                    <input type="checkbox" name="" id="" class="active" data-target="all">
+                                    <label for="">All</label>
+                                    <span>@Model.personalInfos.OrderByDescending(x=>x.Id).Count()</span>
+                                    @foreach (Category item in Model.categories)
+                                    {
+                                        <div>
+                                            <input type="checkbox" name="" id="" class="active" data-target="@item.Name.ToLower().Replace(" ","")">
+                                            <label for="">@item.Name</label>
+                                            <span>@Model.jobVacancies.Count(x => x.CategoryId == item.Id)</span>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 mt-5 cards">
+                    <div class="row g-2">
+                        @foreach (PersonalInfo item in Model.personalInfos)
+                        {
+
+                            @if (item.Name != null)
+                            {
+                                <div class="col-md-4">
+                                    <div class="card-item">
+                                        <a href="/employers/resume/@item.Id">
+                                            @if (Model.Documents.OrderByDescending(x => x.Id).Where(x => x.UserId == item.UserId).FirstOrDefault() != null)
+                                            {
+                                                <h5 data-target="@Model.Documents.OrderByDescending(x => x.Id).Where(x => x.UserId == item.UserId).Select(x => x.Position).FirstOrDefault().ToLower().Replace(" ","")">@Model.Documents.OrderByDescending(x => x.Id).Where(x => x.UserId == item.UserId).Select(x => x.Position).FirstOrDefault()</h5>
+                                            }
+
+                                            <p> @item.Name @item.Surname</p>
+
+                                            @if (Model.experience.OrderByDescending(x => x.Id).Where(x => x.UserId == item.UserId).FirstOrDefault() == null)
+                                            {
+                                                <p>Experience : No Experience</p>
+                                            }
+                                            else
+                                            {
+                                                <p>
+                                                    Experience :
+                                                    @Model.experience.OrderByDescending(x => x.Id).Where(x => x.UserId == item.UserId).Last().StartToWork - @Model.experience.OrderByDescending(x => x.Id).Where(x => x.UserId == item.UserId).Last().EndToWork
+                                                </p>
+                                            }
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+
+    $(".project-filter input").click(function (e) {
+        // e.preventDefault();
+        $(".project-filter input").removeClass("active");
+        $(".project-filter input").removeClass("active");
+        $(this).addClass("active");
+
+        let target = $(this).attr("data-target");
+        if (target == "all") {
+            $(".card-item").removeClass("d-none");
+        }
+        else {
+            $(".card-item").addClass("d-none");
+            $(".card-item." + target).removeClass("d-none");
+        }
+    });
+
+</script>
+
+    

@@ -1,0 +1,161 @@
+﻿@{ 
+    Layout = null;
+}
+
+@model EditEducationViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="~/assets/images/favicon1.webp" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/registeration.css">
+    <title>Education</title>
+</head>
+<body>
+    <section id="register-title">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4  col-md-6 col-sm-12 ">
+                <partial name="_EditLinksPartialView" />
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-6 col-sm-12  pt-5 right">
+                <h4 class="px-4">Education</h4>
+                <div class="personal-inf m-2 p-2 px-4  mt-lg-3">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        + Add
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <form method="post">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">About Education</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body modal-dialog-scrollable">
+                                        <div class="degree mb-2">
+                                            <p>Degree</p>
+                                            <select class="form-select degree-items" name="Degree">
+                                                <option selected disabled>Choose</option>
+                                                <option value="Bachelor">Bachelor</option>
+                                                <option value="Master">Master</option>
+                                            </select>
+                                            @*<span class="text-danger" asp-validation-for="degree"></span>*@
+                                        </div>
+                                        <div class="university-name">
+                                            <p>University</p>
+                                            <select class="form-select mb-2 wrapper university-items" name="University">
+                                                <option class="uni_opt" selected disabled>Choose</option>
+                                                <option class="uni_opt" value="Academy of Public Administration">Academy of Public Administration</option>
+                                                <option class="uni_opt" value="Azerbaijan Architecture and Construction University">Azerbaijan Architecture and Construction University</option>
+                                                <option class="uni_opt" value="ADA University">ADA University</option>
+                                                <option class="uni_opt" value="Azerbaijan Medical University">Azerbaijan Medical University</option>
+                                                <option class="uni_opt" value="Azerbaijan State Agricultural University">Azerbaijan State Agricultural University</option>
+                                                <option class="uni_opt" value="Azerbaijan State Economic University">Azerbaijan State Economic University</option>
+                                                <option class="uni_opt" value="Azerbaijan State Marine Academy">Azerbaijan State Marine Academy</option>
+                                                <option class="uni_opt" value="Azerbaijan State Oil and Industry University">Azerbaijan State Oil and Industry University</option>
+                                                <option class="uni_opt" value="Azerbaijan State University of Culture and Arts">Azerbaijan State University of Culture and Arts</option>
+                                                <option class="uni_opt" value="Azerbaijan Technical University">Azerbaijan Technical University</option>
+                                                <option class="uni_opt" value="Azerbaijan University of Languages">Azerbaijan University of Languages</option>
+                                                <option class="uni_opt" value="Baku Engineering University">Baku Engineering University</option>
+                                                <option class="uni_opt" value="Baku Higher Oil School">Baku Higher Oil School</option>
+                                                <option class="uni_opt" value="Baku State Universy">Baku State Universy</option>
+                                                <option class="uni_opt" value="Ganja State University">Ganja State University</option>
+                                                <option class="uni_opt" value="Mingachevir State University">Mingachevir State University</option>
+                                                <option class="uni_opt" value="Azerbaijan Higher Military Academy">Azerbaijan Higher Military Academy</option>
+                                                <option class="uni_opt" value="Police Academy of the Ministry of Internal Affairs">Police Academy of the Ministry of Internal Affairs</option>
+                                                <option class="uni_opt" value="Baku Eurasian University">Baku Eurasian University</option>
+                                                <option class="uni_opt" value="Qafqaz University">Qafqaz University</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="years ">
+                                            <div class="row">
+                                                <p> Years of study</p>
+                                                <div class="mb-3 d-flex col-6">
+                                                    <input type="text" class="form-control p-3" id="entranceY" name="EntranceYear" placeholder="Entrance year" aria-describedby="year1meHelp" required>
+                                                    @*<span class="text-danger" asp-validation-for="EntranceYear"></span>*@
+                                                </div>
+                                                <div class="mb-3 col-6">
+                                                    <input type="text" placeholder="Graduation year" name="GraduationYear" class="form-control p-3" id="graduationY" aria-describedby="year2Help" required>
+                                                    @*<span class="text-danger" asp-validation-for="GraduationYear"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="profession">
+                                            <p>Specialization</p>
+                                            <input type="text" class="form-control p-3" id="specilaiz" name="Specialization" placeholder="Specialization" aria-describedby="spHelp" required>
+                                            @*<span class="text-danger" asp-validation-for="Specialization"></span>*@
+                                        </div>
+                                        <div class="score">
+                                            <p>Entrance score</p>
+                                            <input type="number" class="form-control p-3" id="entrances" name="EntranceScore" placeholder="score" aria-describedby="scoreHelp" required>
+                                            @*<span class="text-danger" asp-validation-for="EntranceScore"></span>*@
+                                        </div>
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary add_education_item">Add</button>
+                                        @*<div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit btn btn-primary add_education_item" data-bs-dismiss="modal" value="Add" />
+                            </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="education-info">
+                        @if (Model.education.Count>0)
+                        {
+                            @foreach (Education item in Model.education)
+                            {
+                                if (item != null)
+                                {
+                                    <div class="info-wrapper">
+                                        <p class="universisty">@item.University</p>
+                                        <p class="universisty-degree">@item.Degree</p>
+                                        <p class="year">2018-2022</p>
+                                        <p class="prof">@item.Specialization</p>
+                                        <span class="icons">
+                                            <i class="bi bi-pencil-fill edit_education_item"></i>
+                                            <i class="bi bi-trash-fill delete_education_item"></i>
+                                        </span>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <a href="/Profil/InfoAppeal" class="btn btn-light next">Back to Home</a>
+                    <a href="/EditProfil/interests" class="btn btn-light"><i class="bi bi-arrow-left"></i>Back</a>
+                    <a href="/EditProfil/experience" class="btn btn-light next">Next</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+﻿@model HomeViewModel
+
+    <section id="hiring" class="pb-5">
+        <div class="container mb-5">
+            <p class="h5">How is the hiring process carried out?</p>
+            <div class="row mt-3 cards pt-2">
+                <div class="col-md-4 card-item px-5 mb-md-0 mb-3">
+                    <h2>01</h2>
+                    @Html.Raw(Model.cardOne.Condition)
+                </div>
+                <div class="col-md-4 card-item px-5 mb-md-0 mb-3">
+                    <h2>02</h2>
+                    @Html.Raw(Model.cardTwo.Condition)
+
+                </div>
+                <div class="col-md-4 card-item px-5 mb-md-0 mb-3">
+                    <h2>03</h2>
+                     @Html.Raw(Model.cardThree.Condition)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="companies" class="spb-4">
+        <div class="container pt-5">
+            <h2 class="company-text mb-5">You can work on projects with this companies</h2>
+            <div class="row g-3">
+
+                @foreach (CompanyLogo item in Model.companyLogos)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="logo">
+                            <img src="~/assets/images/logo/@item.LogoImage" alt="">
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+
+    <section class="vacancies">
+        <div class="container pt-5">
+            <h3 class="mb-5">Top specializations</h3>
+            <div class="row g-4">
+                @foreach (var item in Model.categories)
+                {
+                    @if ((Model.jobVacancies.Count(x => x.CategoryId == item.Id)) > 0)
+                    {
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="#">
+                                <div class="item">
+                                    <p class="vacancy">@Model.jobVacancies.Count(x => x.CategoryId == item.Id) &nbsp;<span>vacancies</span></p>
+                                    <h4>@item.Name</h4>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                }
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="#">
+                        <div class="item">
+                            <p class="vacancy">3 <span>vacancies</span></p>
+                            <h4>Java developer</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="#">
+                        <div class="item">
+                            <p class="vacancy">3 <span>vacancies</span></p>
+                            <h4>Java developer</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="#">
+                        <div class="item">
+                            <p class="vacancy">3 <span>vacancies</span></p>
+                            <h4>Java developer</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="#">
+                        <div class="item">
+                            <p class="vacancy">3 <span>vacancies</span></p>
+                            <h4>Java developer</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="#">
+                        <div class="item">
+                            <p class="vacancy">3 <span>vacancies</span></p>
+                            <h4>Java developer</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="#">
+                        <div class="item">
+                            <p class="vacancy">3 <span>vacancies</span></p>
+                            <h4>Java developer</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="#">
+                        <div class="item">
+                            <p class="vacancy">3 <span>vacancies</span></p>
+                            <h4>Java developer</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <a href="#">
+                        <div class="item">
+                            <p class="vacancy">3 <span>vacancies</span></p>
+                            <h4>Java developer</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+

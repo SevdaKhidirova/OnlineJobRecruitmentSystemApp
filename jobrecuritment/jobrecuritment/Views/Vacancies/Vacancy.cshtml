@@ -1,0 +1,90 @@
+﻿@model FilterViewModel
+
+
+<section id="vacancies">
+    <div class="own-container">
+        <div class="container">
+            <h2 class="mb-5">Vacancies</h2>
+            <div class="input-group d-flex">
+                <div class="form-outline">
+                    <input type="search" placeholder="Search for job..." id="search-input" class="form-control input" />
+                </div>
+                <button type="button" class="search-btn icon">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="vacancies-filter">
+    <div class="container my-2">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="type-skill mt-5">
+                    <div class="row">
+                        <partial name="_CategoriesPartial" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9 mt-5">
+                <div class="row g-4">
+                    @foreach (JobVacancy item in Model.jobVacancies)
+                    {
+                        <div class="col-12 project-wrapper @item.Category.Name.ToLower().Replace(" ","")  @item.JobType.Name.ToLower().Replace(" ","") @item.Level.Name.ToLower().Replace(" ","") " id="search-item">
+                            <a href="/Vacancies/summary/@item.Id">
+                                <div class="job-card">
+                                    <h4> @item.Category.Name</h4>
+                                    <p> @item.JobType.Name</p>
+
+                                    @Html.Raw(item.Summary)
+                                    <p></p>
+                                    <span>Due Time  @item.DueTime</span>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        @if (Model.userToVacancies.Any(x => x.VacancyId == item.Id))
+                                        {
+                                            <a href="#" id="aply_button" class="btn btn-light disabled" >Applied</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Vacancies/UserToVacancyConnection/@item.Id" id="aply_button" class="btn btn-light">Apply</a>
+                                        }
+                                    }
+                                </div>
+                            </a>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+
+    $("#search-input").keyup(function () {
+        console.log($("#search-input").val());
+        var classlist = document.getElementById("search-item").classList;
+        let query = $("#search-input").val()
+        if (query.length >= 3) {
+            $(".project-filter input").removeClass("active");
+            //console.log(classlist)
+            //console.log(classlist.length)
+            for (var i = 0; i < classlist.length; i++) {
+                if (classlist.contains(query)) {
+                /*console.log(classlist[i])*/
+                }
+            }
+            //if (!classlist.contains(query)) {
+            //    $(".project-wrapper").addClass("d-none");
+            //}
+        }
+        else {
+            $(".services-wrapper").empty();
+        }
+    });
+</script>*@

@@ -1,0 +1,18 @@
+﻿@model FilterViewModel
+
+@foreach (JobVacancy item in Model.jobVacancies)
+{
+    <div class="col-12 project-wrapper @item.Category.Name.ToLower().Replace(" ","")  @item.JobType.Name.ToLower().Replace(" ","") @item.Level.Name.ToLower().Replace(" ","") ">
+        <a href="/Vacancies/summary/@item.Id">
+            <div class="job-card">
+                <h4> @item.Category.Name</h4>
+                <p> @item.JobType.Name</p>
+
+                @Html.Raw(item.Summary)
+                <p></p>
+                <span>Due Time  @item.DueTime</span>
+                <a href="#" class="btn btn-light">Apply</a>
+            </div>
+        </a>
+    </div>
+}

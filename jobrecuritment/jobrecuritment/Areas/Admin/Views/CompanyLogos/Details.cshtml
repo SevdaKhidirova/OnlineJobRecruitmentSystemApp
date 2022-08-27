@@ -1,0 +1,30 @@
+﻿@model jobrecuritment.Models.CompanyLogo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Company & Logo</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Company Name
+        </dt>
+        <dd class = "col-sm-10">
+            Logo
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LogoImage)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="~/assets/images/logo/@Html.DisplayFor(model => model.LogoImage)" alt="Alternate Text"  width="140" class="rounded"/>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
+    <a class="btn btn-light" asp-action="Index">Back to List</a>
+</div>

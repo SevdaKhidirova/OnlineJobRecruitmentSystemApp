@@ -1,0 +1,121 @@
+﻿@model EditAdViewModel
+
+<section id="post_ad">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="add-card">
+                    <form method="post">
+                        <div class="row">
+                            <div class="mb-3 col-sm-6">
+                                <label for="exampleFormControlInput1" class="form-label">Job Title</label>
+                                <input type="text" class="form-control" name="JobTitle" id="exampleFormControlInput1" placeholder="Title" value="@Model.jobVacancy.JobTitle">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="exampleFormControlInput2" class="form-label">Company Name</label>
+                                <input type="text" class="form-control" name="CompanyName" id="exampleFormControlInput2" placeholder="Company" value="@Model.jobVacancy.CompanyName">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="exampleFormControlInput3" class="form-label">Due Time</label>
+                                <input type="text" class="form-control" name="DueTime" id="exampleFormControlInput3" value="@Model.jobVacancy.DueTime" placeholder="Time">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="exampleFormControlInput4" class="form-label">Salary</label>
+                                <input type="number" class="form-control" name="Salary" id="exampleFormControlInput4" value="@Model.jobVacancy.Salary" placeholder="Salary">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="exampleFormControlInput6" class="form-label">Work Time</label>
+                                <input type="text" class="form-control" name="WorkTime" id="exampleFormControlInput6" value="@Model.jobVacancy.WorkTime" placeholder="Time">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="exampleFormControlInput7" class="form-label">Education</label>
+                                <input type="text" class="form-control" name="RequiredEducation" id="exampleFormControlInput7" value="@Model.jobVacancy.RequiredEducation" placeholder="Education">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="exampleFormControlInput6" class="form-label">Age</label>
+                                <input type="text" class="form-control" name="RequiredAge" id="exampleFormControlInput6" value="@Model.jobVacancy.RequiredAge" placeholder="Age">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="exampleFormControlInput5" class="form-label">Employment Type</label>
+                                <select class="form-select job_type" aria-label="Default select example" name="JobTypeId">
+                                    <option selected value="@Model.jobVacancy.JobTypeId">@Model.jobVacancy.JobType.Name</option>
+                                    @foreach (JobType item in Model.jobType)
+                                    {
+                                        <option name="@item.Id" value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="exampleFormControlInput5" class="form-label">Category</label>
+                                <select class="form-select job_type" aria-label="Default select example" name="CategoryId">
+                                    <option selected value="@Model.jobVacancy.CategoryId"> @Model.jobVacancy.Category.Name</option>
+
+                                    @foreach (Category item in Model.category)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="exampleFormControlInput5" class="form-label">Level</label>
+                                <select class="form-select job_type" name="LevelId" aria-label="Default select example">
+                                    <option selected value="@Model.jobVacancy.LevelId">@Model.jobVacancy.Level.Name</option>
+                                    @foreach (Level item in Model.levels)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="mb-3 ">
+                                <label for="txthtml3" class="form-label">Summary</label>
+                                <textarea class="form-control" name="Summary" id="txthtml3" rows="3">
+                                 @Model.jobVacancy.Summary
+                                 </textarea>
+                            </div>
+                            <div class="mb-3 ">
+                                <label for="txthtml" class="form-label">Requritments</label>
+                                <textarea class="form-control" id="txthtml" name="Requirements" rows="3">@Model.jobVacancy.Requirements</textarea>
+                            </div>
+                            <div class="mb-3 ">
+                                <label for="txthtml1" class="form-label">Desired Skills</label>
+                                <textarea class="form-control" name="Responsibilities" id="txthtml1" rows="3">@Model.jobVacancy.Responsibilities</textarea>
+                            </div>
+                            <div class="mb-3 ">
+                                <label for="txthtml2" class="form-label">Reasons to join us</label>
+                                <textarea class="form-control" id="txthtml2" name="ReasonToJoinUs" rows="3">@Model.jobVacancy.ReasonToJoinUs</textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-danger post_ad_button">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <p class="bold">My Ads</p>
+                @foreach (JobVacancy item in Model.jobVacancyLs)
+                {
+                    if (item.Id != Model.jobVacancy.Id)
+                    {
+                        <div class="my_post">
+                            <p class="bold">@item.CompanyName</p>
+                            <span>@item.Level.Name</span>
+                            <p>@item.JobTitle</p>
+                            <p>Last date of vacancy @item.DueTime</p>
+                            <a class="btn btn-outline-info">Remove</a>
+                            <a class="btn btn-outline-info" href="/profil/editad/@item.Id">Edit</a>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<script src="//cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+<script>
+          CKEDITOR.replace('txthtml')
+          CKEDITOR.replace('txthtml1')
+          CKEDITOR.replace('txthtml2')
+          CKEDITOR.replace('txthtml3')
+</script>

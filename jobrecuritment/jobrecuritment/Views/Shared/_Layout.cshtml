@@ -1,0 +1,100 @@
+﻿@model BaseViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="~/assets/images/favicon.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/profil_appeal.css">
+    <link rel="stylesheet" href="~/assets/css/registeration.css">
+    <title>Job Requritment</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top bg-light">
+            <div class="container my-3">
+                <a class="navbar-brand" href="/home/index">
+                    <img src="~/assets/images/logo-2.png" alt="" class="logo"><span class="logo-part"><b>earch</b></span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link " aria-current="page" href="/home/index">Home</a>
+                        <a class="nav-link" href="/Vacancies/Vacancy">Vacancies</a>
+                        <a class="nav-link" href="/employers/index">Employers</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="nav-link dropdown profile" href="#">
+                                <div class="profile-image">
+                                    <img src="~/assets/images/user/@Model.NavbarProfil.ProfilImage" alt="">
+                                </div>
+                                <div class="dropdown-content info-area" id="info-area">
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="profile-image1">
+                                                <img src="~/assets/images/user/@Model.NavbarProfil.ProfilImage" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-0">
+                                            <div class="profile-text">
+                                                <p class="mb-0 text-center"><b>@Model.NavbarProfil.Name @Model.NavbarProfil.Surname</b></p>
+                                                <p class="email text-center">@Model.AppUser.Email</p>
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <div class="button-group personal">
+                                                <a href="/Profil/infoAppeal" class="btn btn-link">Personal İnfromation</a>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="/Profil/infoAppeal" class="btn btn-link">Appeals</a>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="/profil/postAd" class="btn btn-link">Post your ad</a>
+                                            </div>
+                                            <div class="button-group">
+                                                <a href="/account/Logout" class="btn btn-link">Log Out</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="remove-profile">x</a>
+                                </div>
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="nav-link dropdown login" href="/account/login"> Login </a>
+                            <a class="nav-link" href="/Account/Register">Register</a>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+
+    <footer>
+        <div class="container">
+            <p>Contact  Us</p>
+            <div>
+                <i class="bi bi-envelope-fill"></i><a href="mailto:sevda.khidirova@gmail.com">sevda.khidirova@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="~/assets/js/main.js"></script>
+</body>
+</html>

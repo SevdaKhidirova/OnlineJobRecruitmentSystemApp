@@ -1,0 +1,125 @@
+﻿@model ProfilViewModel
+
+    <section id="profil">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="profil-wrapper">
+                        <div class="row g-1">
+                            <div class="col-sm-6">
+                                <div class="card-top">
+                                    <div class="profil-image">
+                                        <img src="~/assets/images/user/@Model.NavbarProfil.ProfilImage" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 info_col">
+                                <div class="main-info">
+                                    <h5 class="bold">@Model.NavbarProfil.Name  @Model.NavbarProfil.Surname</h5>
+                                    <p>@Model.education.University (@Model.education.Degree)</p>
+                                    <p>Date of Birth @Model.NavbarProfil.DateOfBiirth.ToString("dd MMM yyyy")</p>
+                                    <p>Gender @Model.NavbarProfil.Gender</p>
+                                    <p class="gmail">@Model.AppUser.Email</p>
+                                    <p>(+994)-@Model.AppUser.PhoneNumber</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="profil_skills">
+                                <p class="bold">Skills</p>
+                                <p class="skills-area">
+                                    @foreach (Interests item in Model.interests)
+                                    {
+                                        <span>@item.InterestItem</span>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="profil_experience">
+                                <p class="bold">Experience</p>
+                                @if (Model.experience.Count ==0)
+                                {
+                                    <p>No experience</p>
+                                }
+                                else
+                                {
+
+                                    @foreach (Experience item in Model.experience)
+                                    {
+                                        <div class="company_detailed">
+                                            <p>Company - @item.CompanyName</p>
+                                            <p>Department & Position @item.Department</p>
+                                            <p>Responsibilities - @item.Responsibilities </p>
+                                            <p>
+                                                @item.StartToWork - @item.EndToWork
+                                            </p>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="profil_language">
+                                <p class="bold">Language</p>
+                                @foreach (Language item in Model.languages)
+                                {
+                                    <div class="language_detailed">
+                                        <p class="bold">@item.LanguageItem</p>
+                                        <p>Read - @item.Read & Write - @item.Write & Speak - @item.Speak</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="profil_links">
+                                <p class="bold">Links</p>
+                                <div class="links_detailed">
+                                    @if (Model.links.Github != null)
+                                    {
+                                        <p class="bold">Github</p>
+                                        <p class="link">@Model.links.Github</p>
+                                    }
+                                    @if (Model.links.Linkedin != null)
+                                    {
+                                        <p class="bold">Linkedin</p>
+                                        <p class="link">@Model.links.Linkedin</p>
+                                    }
+                                    @if (Model.links.Facebook != null)
+                                    {
+                                        <p class="bold">Facebook</p>
+                                        <p>@Model.links.Facebook</p>
+                                    }
+                                    @if(Model.links.Github == null && Model.links.Linkedin == null && Model.links.Facebook == null)
+                                     {
+                                        <p>_</p>
+                                     }
+
+                                </div>
+                            </div>
+                        </div>
+                        <a type="button" class="btn btn-outline-dark edit_items" href="/EditProfil/personal/@Model.NavbarProfil.UserId">Edit</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <p class="bold">Appeals</p>
+                    @foreach (var item in Model.jobVacancy)
+                    {
+                        if (Model.userToVacancy.Any(x => x.VacancyId == item.Id))
+                        {
+                            <div class="appeals">
+                                <p class="bold">@item.CompanyName</p>
+                                @*<span>@item.Level.Name</span>*@
+                                <p>@item.JobTitle</p>
+                                <p>Aply Time  @Model.userToVacancy.Where(x => x.VacancyId == item.Id).FirstOrDefault().AplyTime.ToString("dd MMM yyyy")</p>
+                                <p>Last date of vacancy @item.DueTime</p>
+                                <a class="btn btn-outline-danger" href="/profil/removeAppeal/@item.Id">Remove</a>
+                            </div>
+                        }
+                    }
+                </div>
+
+            </div>
+        </div>
+    </section>
+

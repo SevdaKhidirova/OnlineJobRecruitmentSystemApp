@@ -1,0 +1,41 @@
+﻿@model IEnumerable<jobrecuritment.Models.CompanyLogo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Logo</h1>
+
+<p>
+    <a class="btn btn-light" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Company
+            </th>
+            <th>
+               Logo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                <img src="~/assets/images/logo/@Html.DisplayFor(modelItem => item.LogoImage)" width="100" alt="Alternate Text" />
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

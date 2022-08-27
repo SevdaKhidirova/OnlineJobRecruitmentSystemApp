@@ -1,0 +1,16 @@
+﻿@model List<Interests>
+
+@foreach (Interests item in Model)
+{
+    
+        <li data-id="0"
+            class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div>@item.InterestItem</div>
+            </div>
+            <span class="badge bg-danger depth-4 rounded-pill">
+                <i data-id="0" class="bi bi-trash delete_interest_item"></i>
+            </span>
+        </li>
+ 
+}
