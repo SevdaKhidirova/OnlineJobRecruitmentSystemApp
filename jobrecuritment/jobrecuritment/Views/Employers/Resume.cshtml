@@ -192,27 +192,41 @@
                         <div class="col-6">
                             <div class="links">
                                 <p>Social Media Links</p>
-
-                                <a href="@Model.links.Facebook" target="_blank"><i class="bi bi-facebook"></i></a>
-                                <a href="@Model.links.Github" target="_blank"><i class="bi bi-github"></i></a>
-                                <a href="@Model.links.Linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
-                                @*@if (Model.links.Github != null)
+                                @if (Model.links.Facebook != null)
                                 {
-                                    <a href="@Model.links.Github"><i class="bi bi-github"></i></a>
+                                    <a href="@Model.links.Facebook" target="_blank"><i class="bi bi-facebook"></i></a>
                                 }
                                 @if (Model.links.Linkedin != null)
                                 {
-                                    <a href="@Model.links.Linkedin"><i class="bi bi-linkedin"></i></a>
+                                    <a href="@Model.links.Linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
                                 }
-                                @if (Model.links.Facebook == null && Model.links.Github == null && Model.links.Linkedin == null)
+                                @if (Model.links.Github != null)
                                 {
-                                    <p>--</p>
+                                    <a href="@Model.links.Github" target="_blank"><i class="bi bi-github"></i></a>
+                                }
+                                @*@if (Model.links != null)
+                                {
+                                    <a href="@Model.links.Facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                                    <a href="@Model.links.Github" target="_blank"><i class="bi bi-github"></i></a>
+                                    <a href="@Model.links.Linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
                                 }*@
+
+                                @*@if (Model.links.Github != null)
+        {
+            <a href="@Model.links.Github"><i class="bi bi-github"></i></a>
+        }
+        @if (Model.links.Linkedin != null)
+        {
+            <a href="@Model.links.Linkedin"><i class="bi bi-linkedin"></i></a>
+        }
+        @if (Model.links.Facebook == null && Model.links.Github == null && Model.links.Linkedin == null)
+        {
+            <p>--</p>
+        }*@
 
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="btn btn-warning my-2">Invate for an İnterview </a>
                     @*<a class="btn btn-info">Add to Starred</a>*@
                 </div>
 

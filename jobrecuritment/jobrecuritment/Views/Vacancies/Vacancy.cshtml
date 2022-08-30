@@ -44,7 +44,7 @@
                                     {
                                         @if (Model.userToVacancies.Any(x => x.VacancyId == item.Id))
                                         {
-                                            <a href="#" id="aply_button" class="btn btn-light disabled" >Applied</a>
+                                            <a href="#" id="aply_button" class="btn btn-light disabled">Applied</a>
                                         }
                                         else
                                         {
@@ -62,29 +62,23 @@
     </div>
 </section>
 
-@*<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script>
 
-    $("#search-input").keyup(function () {
-        console.log($("#search-input").val());
-        var classlist = document.getElementById("search-item").classList;
-        let query = $("#search-input").val()
-        if (query.length >= 3) {
-            $(".project-filter input").removeClass("active");
-            //console.log(classlist)
-            //console.log(classlist.length)
-            for (var i = 0; i < classlist.length; i++) {
-                if (classlist.contains(query)) {
-                /*console.log(classlist[i])*/
-                }
-            }
-            //if (!classlist.contains(query)) {
-            //    $(".project-wrapper").addClass("d-none");
-            //}
+    $(".project-filter input").click(function (e) {
+        // e.preventDefault();
+        $(".project-filter input").removeClass("active");
+        $(this).addClass("active");
+
+        let target = $(this).attr("data-target");
+        if (target == "all") {
+            $(".project-wrapper").removeClass("d-none");
         }
         else {
-            $(".services-wrapper").empty();
+            console.log(target)
+            $(".project-wrapper").addClass("d-none");
+            $(".project-wrapper." + target).removeClass("d-none");
         }
     });
-</script>*@
+
+</script>

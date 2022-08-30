@@ -2,10 +2,14 @@
 
 
 <div class="col-12 project-filter">
-    <input type="checkbox" name="" id="">
-    <label data-target="all" class="active mb-2">All</label>
+    
     <div class="job-types">
         <h5>Job Types</h5>
+        <div>
+            <input type="checkbox" name="" id="" data-target="all">
+            <label data-target="all" class="active mb-2">All</label>
+            <span>@Model.jobVacancies.Count</span>
+        </div>
         @foreach (JobType item in Model.jobTypes)
         {
             <div>
