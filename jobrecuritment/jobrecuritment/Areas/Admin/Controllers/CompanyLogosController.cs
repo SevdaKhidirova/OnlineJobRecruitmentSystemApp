@@ -59,7 +59,7 @@ namespace jobrecuritment.Areas.Admin.Controllers
         public async Task<IActionResult> Create(CompanyLogo companyLogo)
         {
           
-            if (companyLogo.LogoImg.ContentType.Contains("image"))
+            if (!companyLogo.LogoImg.ContentType.Contains("image"))
             {
                 ModelState.AddModelError("LogoImg", "File is not an image");
                 return View(companyLogo);
@@ -130,8 +130,15 @@ namespace jobrecuritment.Areas.Admin.Controllers
                 {
                     System.IO.File.Delete(Path.Combine(path, companyLogo.LogoImage));
                 }
+                string fileName = Guid.NewGuid().ToString() + companyLogo.LogoImg.FileName;
+                string finalPath = Path.Combine(path, fileName);
 
-                companyLogo.LogoImage = companyLogo.LogoImg.Upload(path);
+                using (FileStream stream = new FileStream(finalPath, FileMode.Create))
+                {
+                    await companyLogo.LogoImg.CopyToAsync(stream);
+                }
+
+                companyLogo.LogoImage =fileName;
             }
 
             _context.Update(companyLogo);

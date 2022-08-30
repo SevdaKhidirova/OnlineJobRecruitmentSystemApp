@@ -42,14 +42,18 @@
                                     <span>Due Time  @item.DueTime</span>
                                     @if (User.Identity.IsAuthenticated)
                                     {
-                                        @if (Model.userToVacancies.Any(x => x.VacancyId == item.Id))
+                                        @if (Model.userToVacancies.Any(x => x.UserId != item.UserId))
                                         {
-                                            <a href="#" id="aply_button" class="btn btn-light disabled">Applied</a>
+                                            @if (Model.userToVacancies.Any(x => x.VacancyId == item.Id))
+                                            {
+                                                <a href="#" id="aply_button" class="btn btn-light disabled">Applied</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="/Vacancies/UserToVacancyConnection/@item.Id" id="aply_button" class="btn btn-light">Apply</a>
+                                            }
                                         }
-                                        else
-                                        {
-                                            <a href="/Vacancies/UserToVacancyConnection/@item.Id" id="aply_button" class="btn btn-light">Apply</a>
-                                        }
+
                                     }
                                 </div>
                             </a>

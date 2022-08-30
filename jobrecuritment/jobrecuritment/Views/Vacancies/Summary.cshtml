@@ -16,10 +16,14 @@
         <h2>Company : @Model.jobVacancy.CompanyName</h2>
         <h2 class="mb-3">Summary</h2>
         @Html.Raw(Model.jobVacancy.Summary)
-        <h2 class="mt-5 mb-3">Responsibilities:</h2>
-        <div class="responsibilites">
-            @Html.Raw(Model.jobVacancy.Responsibilities)
-        </div>
+        @if (Model.jobVacancy.Responsibilities != null)
+        {
+            <h2 class="mt-5 mb-3">Responsibilities:</h2>
+            <div class="responsibilites">
+                @Html.Raw(Model.jobVacancy.Responsibilities)
+            </div>
+        }
+
         <h2 class="my-5">Requirements</h2>
         <div class="requritments">
             @Html.Raw(Model.jobVacancy.Requirements)
@@ -28,10 +32,14 @@
         <div class="desired-skills">
             @Html.Raw(Model.jobVacancy.DesiredSkills)
         </div>*@
-        <h2 class="my-5">Reasons to join us</h2>
-        <div class="reason">
-            @Html.Raw(Model.jobVacancy.ReasonToJoinUs)
-        </div>
+        @if (Model.jobVacancy.ReasonToJoinUs != null)
+        {
+            <h2 class="my-5">Reasons to join us</h2>
+            <div class="reason">
+                @Html.Raw(Model.jobVacancy.ReasonToJoinUs)
+            </div>
+        }
+
         @if (User.Identity.IsAuthenticated)
         {
 
